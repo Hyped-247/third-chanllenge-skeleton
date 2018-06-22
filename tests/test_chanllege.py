@@ -1,79 +1,27 @@
+import sys
 import unittest
-from challenge import Car
+from io import StringIO
+from challenge import Printer
 
 
-class EasyTestCase(unittest.TestCase):
-
-    def setUp(self):
-        # Todo: create an object named car from the Car class
-        # Todo: use the object car to start the car.
-        pass
-
-    def test_easy_input(self):
-        # Todo: use the object car to add speed 4 times.
-        # Todo: make sure that the current speed is 20.
-        pass
-
-    def test_easy_input_two(self):
-        # Todo: use the object car to add speed 2 times.
-        # Todo: use the object car to stop the car.
-        # Todo: make sure that the current speed is 0.
-        pass
-
-    def tearDown(self):
-        # Todo: stop the car.
-        # Todo: turn off the car.
-        # Todo: set the object car to None.
-        pass
-
-
-class MediumTestCase(unittest.TestCase):
+class TestPrintedOutPut(unittest.TestCase):
 
     def setUp(self):
-        # Todo: create an object named car from the Car class
-        # Todo: use the object car to start the car.
-        pass
+        self.held, sys.stdout = sys.stdout, StringIO()
+        self.printer = Printer()
 
-    def test_medium_input(self):
-        # Todo: raise an exception if the user tried to start the car while it's already on.
-        pass
+    def test_value_name(self):
+        self.printer.set_value('Muhammad Ali')
+        self.printer.print_value()
+        self.assertEqual(sys.stdout.getvalue().strip(), 'Muhammad Ali')
 
-    def test_medium_input_two(self):
-        # Todo: use the object car to remove speed 4 times.
-        # Todo: make sure that the current speed is 0.
-        pass
-
-    def tearDown(self):
-        # Todo: stop the car.
-        # Todo: turn off the car.
-        # Todo: set the object car to None.
-        pass
-
-
-class HardTestCase(unittest.TestCase):
-
-    def setUp(self):
-        # Todo: create an object named car from the Car class
-        # Todo: use the object car to start the car.
-        pass
-
-    def test_hard_input(self):
-        # Todo: raise an exception if the user tried to turn off the car at a speed greater than 0.
-        pass
-
-    def test_hard_input_two(self):
-        # Todo: use the object car to add speed 2 times.
-        # Todo: stop the car.
-        # Todo: stop the car.
-        # Todo: stop the car.
-        # Todo: make sure that the current speed is 0.
-        pass
+    def test_value_job(self):
+        self.printer.set_value('Boxer')
+        self.printer.print_value()
+        self.assertEqual(sys.stdout.getvalue().strip(), 'Boxer')
 
     def tearDown(self):
-        # Todo: stop the car.
-        # Todo: turn off the car.
-        # Todo: set the object car to None.
-        pass
+        self.printer = None
 
 
 if __name__ == '__main__':

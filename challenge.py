@@ -1,38 +1,15 @@
-"""Coding Challenge Skeleton #2
+"""Coding Challenge #2
 """
 
 
-class Car:
+class Printer:
     def __init__(self):
-        self._speed = 0
-        self._start_car = False
+        self._print = ""
 
-    def start_car(self):
-        # Todo: implement me
-        self._start_car = True
+    def set_value(self, value):
+        self._print = value
 
-    def turn_off_car(self):
-        # Todo: implement me
-        self._start_car = False
-
-    def add_speed(self):
-        self._speed += 5
-
-    def remove_speed(self):
-        # Todo: implement me
-        self._speed -= 5
-
-    def current_speed(self):
-        return self._speed
-
-    def stop(self):
-        self._speed = 0
-
-    def car_status(self):
-        return self._start_car
-
-
-
-
+    def print_value(self):
+        print(self._print)
 
 
